@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAccountRoles extends Migration
+class AccountRolesAddNameStubColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateAccountRoles extends Migration
      */
     public function up()
     {
-        Schema::create('account_roles', function (Blueprint $table) {
-            $table->mediumInteger('id');
-            $table->string('name', 60);
+        Schema::table('account_roles', function (Blueprint $table) {
+            $table->string('stub')->after('name');
         });
     }
 
@@ -26,6 +25,8 @@ class CreateAccountRoles extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('account_roles');
+        Schema::table('account_roles', function (Blueprint $table) {
+            //
+        });
     }
 }
