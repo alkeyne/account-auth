@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\AccountUser;
+use App\Models\AccountUserInvite;
 use App\Models\AccountUserRole;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -36,5 +37,8 @@ Route::get('/test', function () {
 //
 //    $user = User::find(1);
 //    var_dump($user->accounts[0]->roles[0]->accountUser->account->createdBy);
+
+      $accountUserInvite = AccountUserInvite::find(1);
+      var_dump(optional($accountUserInvite->user)->toArray());
 
 });
